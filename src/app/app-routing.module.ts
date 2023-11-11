@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'foruser',component:ForUserComponent,canActivate:[authGuard],data:{roles:['user']}},
   {path:'foradmin',component:ForAdminComponent,canActivate:[authGuard],data:{roles:['admin']}},
   {path:'addNewProduct',component:AddNewProductComponent,canActivate:[authGuard],data:{roles:['admin']}},
-  {path:'ShowAllProducts', component:ShowAllProductsComponent,canActivate:[authGuard],data:{roles:['admin']}}
+  {path:'ShowAllProducts', component:ShowAllProductsComponent,canActivate:[authGuard],data:{roles:['admin']}},
 
 ];
 

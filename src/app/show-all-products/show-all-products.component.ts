@@ -8,9 +8,11 @@ import { Product } from '../_model/product.model';
   styleUrls: ['./show-all-products.component.css']
 })
 export class ShowAllProductsComponent implements OnInit{
+
   dataSource:any[]=[];
+  jsonData:any;
   
-  displayedColumns: string[] = ['productId','productName', 'productDescription', 'productActualPrice', 'productDiscountedPrice'];
+  displayedColumns: string[] = ['productId','productName', 'productDescription', 'productActualPrice', 'productDiscountedPrice','Edit','Delete'];
 
   constructor(private productService:ProductService){
       
@@ -35,5 +37,22 @@ export class ShowAllProductsComponent implements OnInit{
     )
 
   }
+
+
+    public deleteProduct(productId:Number){
+
+      this.productService.deleteProduct(productId).subscribe(
+        (response)=>{
+          // console.log("Delete Response"+response);
+          this.getAllProduct();
+
+        },
+        (error)=>{
+          console.log(error);
+        }
+      )
+
+    }
+
 
 }
